@@ -1,5 +1,7 @@
 package com.ytf.jquerymobile.demos;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -58,6 +60,31 @@ public class MainActivity extends BaseActivity {
             mWebView.goBack();
             return true;
         }
+        // TODO Auto-generated method stub
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("确认退出？");
+            builder.setTitle("提示");
+            builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    arg0.dismiss();
+                    finish();
+                }
+            });
+            builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    // TODO Auto-generated method stub
+                    arg0.dismiss();
+                }
+            });
+            builder.create().show();
+
+            return true;
+        }
+
         return false;
     }
 
